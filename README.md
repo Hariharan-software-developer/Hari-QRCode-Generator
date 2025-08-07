@@ -1,12 +1,105 @@
-# React + Vite
+# 🚀 QR Code Generator App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-featured **QR Code Generator** built with **React + Vite** and styled using **Bootstrap 5**. It allows users to input any text or URL and generate a downloadable QR code image using the `api.qrserver.com` API.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧩 Features
 
-## Expanding the ESLint configuration
+- ✅ Real-time QR Code generation
+- ✅ Download QR Code as `.png`
+- ✅ Responsive UI with Bootstrap 5
+- ✅ Beautiful animated loading spinner
+- ✅ Architecture and code flow structured for scaling
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🔧 Tech Stack
+
+| Technology     | Usage                  |
+|----------------|------------------------|
+| React (Vite)   | Frontend framework     |
+| Bootstrap 5    | Responsive UI styling  |
+| Axios / Fetch  | API communication      |
+| QRServer API   | QR Code generation     |
+| CSS            | Custom spinner & styles |
+
+---
+
+## 🛠️ Installation
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/qr-code-generator.git
+
+# 2. Navigate to the project
+cd qr-code-generator
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the dev server
+npm run dev
+
+
+#Architecture diagram
++--------------------------+
+|        User Input        |
+|  (Text / URL in form)    |
++------------+-------------+
+             |
+             v
++--------------------------+
+|  Frontend (React + Vite) |
+|  - Form Validation       |
+|  - Spinner UI            |
+|  - Fetch QR Image        |
++------------+-------------+
+             |
+             v
++---------------------------+
+|   API: api.qrserver.com   |
+|  Returns QR Image (.png)  |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Display & Download Option |
++---------------------------+
+
+#code flow
+[User Enters Text/URL]
+          |
+          v
+ [Click Generate Button]
+          |
+          v
+ [Set loading = true]
+          |
+          v
+ [Call QRServer API]
+          |
+          v
+ [API Response Received]
+          |
+          v
+ [Set QR Image URL]
+ [Set loading = false]
+          |
+          v
+ [Display QR Code & Download Button]
+
+#project structure
+qr-code-generator/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   └── QRGenerator.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   ├── main.jsx
+│   └── index.css
+├── package.json
+├── vite.config.js
+└── README.md
